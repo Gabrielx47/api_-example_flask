@@ -1,0 +1,160 @@
+openapi: 3.0.0
+info:
+  version: v1
+  title: Calculator
+  description: API voltada a operações matemáticas
+
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/GALERAXXX76/Calculator/v1
+
+paths:
+  /operations:
+    get:
+      tags:
+        - Operations
+      summary: Listar todas a operações.
+      description: Ao realizar uma chamada ao servidor, ele retorna todas as operações matemáticas possíveis.
+      responses:
+        '200':
+          description: Todas as operações foram listadas com sucesso.
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  operacoes:
+                    type: array
+                    items:
+                      type: string
+                    example: ["Soma", "Subtração", "Divisão", "Multiplicação"]
+                    description: Nomes da operações matemáticas.
+  /operations/addition:
+    post:
+      tags: 
+        - Operations
+      summary: Realiza a soma de dois números.
+      requestBody:
+        description: Contem os dois valores necessários para a operação.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: 
+                valor1:
+                  type: integer
+                  example: 1
+                valor2:
+                  type: integer
+                  example: 3
+            
+      description: Ao enviar dois números, o servidor realiza a soma e retorna o resultado.
+      responses:
+        '200':
+          description: Soma realizada com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resultado:
+                    type: integer
+                    example: 4
+  /operations/subtraction:
+    post:
+      tags: 
+        - Operations
+      summary: Realiza a subtração de dois números.
+      requestBody:
+        description: Contem os dois valores necessários para a operação.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: 
+                valor1:
+                  type: integer
+                  example: 4
+                valor2:
+                  type: integer
+                  example: 3
+            
+      description: Ao enviar dois números, o servidor realiza a subtração e retorna o resultado.
+      responses:
+        '200':
+          description: Subtração realizada com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resultado:
+                    type: integer
+                    example: 1
+  /operations/multiplication:
+    post:
+      tags: 
+        - Operations
+      summary: Realiza a multiplicação de dois números.
+      requestBody:
+        description: Contem os dois valores necessários para a operação.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: 
+                valor1:
+                  type: integer
+                  example: 5
+                valor2:
+                  type: integer
+                  example: 3
+            
+      description: Ao enviar dois números, o servidor realiza a multiplicação e retorna o resultado.
+      responses:
+        '200':
+          description: Multiplicação realizada com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resultado:
+                    type: integer
+                    example: 15
+  /operations/division:
+    post:
+      tags: 
+        - Operations
+      summary: Realiza a divisão de dois números.
+      requestBody:
+        description: Contem os dois valores necessários para a operação.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: 
+                valor1:
+                  type: integer
+                  example: 4
+                valor2:
+                  type: integer
+                  example: 2
+            
+      description: Ao enviar dois números, o servidor realiza a divisão e retorna o resultado.
+      responses:
+        '200':
+          description: Divisão realizada com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resultado:
+                    type: integer
+                    example: 2
