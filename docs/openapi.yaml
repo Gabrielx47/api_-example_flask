@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   version: v1
   title: Calculator
-  description: API voltada a operações matemáticas
+  description: API realiza operações matemáticas
 
 servers:
   # Added by API Auto Mocking Plugin
@@ -22,14 +22,11 @@ paths:
           content:
             application/json:
               schema: 
-                type: object
-                properties:
-                  operacoes:
-                    type: array
-                    items:
-                      type: string
-                    example: ["Soma", "Subtração", "Divisão", "Multiplicação"]
-                    description: Nomes da operações matemáticas.
+                type: array
+                items:
+                  type: string
+                example: ["Soma", "Subtração", "Divisão", "Multiplicação"]
+                description: Nomes da operações matemáticas.
   /operations/addition:
     post:
       tags: 
